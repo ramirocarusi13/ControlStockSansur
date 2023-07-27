@@ -64,3 +64,4 @@ Route::post('/material/add-stock/{id}', [materialsController::class, 'addStock']
 
 
 Route::get('/products', [productsController::class, 'view'])->middleware('auth')->name('products');
+Route::get('/users', [usersController::class, 'view'])->middleware('auth')->name('users');
