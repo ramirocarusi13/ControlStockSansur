@@ -9,10 +9,10 @@ class KitchenStock extends Model
 {
     use HasFactory;
 
-    protected $table = 'kitchen_stock';
+    protected $table = 'product_stock';
 
     protected $fillable = [
-        'kitchen_id',
+        'product_id',
         'stock',
         'location',
         'status',
