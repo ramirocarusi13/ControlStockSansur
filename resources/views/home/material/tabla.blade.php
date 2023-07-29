@@ -7,67 +7,7 @@
 
                 <div class="column is-fourth-fifhts">
                     <div class="column is-offset-1 is-10">
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-
-                                const btnNuevo = document.getElementById('btnAbrirModal');
-                                const modalNuevo = document.getElementById('modalNuevo');
-                                const btnCerrarModal = document.getElementById('btnCerrarModal');
-                                const btnCancelarModal = document.getElementById('btnCancelarModal');
-                                const btnGuardarMaterial = document.getElementById('btnGuardarMaterial');
-                                const formularioGuardar = document.getElementById('formularioGuardar');
-
-
-                                btnNuevo.addEventListener('click', function() {
-                                    modalNuevo.classList.add('is-active');
-                                });
-
-
-                                btnCerrarModal.addEventListener('click', function() {
-                                    modalNuevo.classList.remove('is-active');
-                                });
-
-
-                                btnCancelarModal.addEventListener('click', function() {
-                                    modalNuevo.classList.remove('is-active');
-                                });
-
-
-                                btnGuardarMaterial.addEventListener('click', function() {
-
-                                    fetch(formularioGuardar.action, {
-                                            method: 'POST',
-                                            headers: {
-                                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                                'Content-Type': 'application/x-www-form-urlencoded',
-                                            },
-                                            body: new URLSearchParams(new FormData(formularioGuardar)),
-                                        })
-                                        .then(response => response.json())
-                                        .then(data => {
-
-                                            if (data.success) {
-                                                modalNuevo.classList.remove('is-active');
-                                                const notification = document.createElement('div');
-                                                notification.classList.add('notification', 'is-success');
-                                                notification.innerText = data.message;
-                                                document.body.appendChild(notification);
-
-                                                setTimeout(function() {
-                                                    notification.remove();
-                                                    // Recargar la página después de eliminar la notificación
-                                                    location.reload();
-                                                }, 1000);
-
-
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error al guardar el material:', error);
-                                        });
-                                });
-                            });
-                        </script>
+                        
 
 
                         {{-- Search form --}}
@@ -169,6 +109,67 @@
                                         <button class="button" id="btnCancelarModal">Cancelar</button>
                                     </footer>
                                 </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+        
+                                        const btnNuevo = document.getElementById('btnAbrirModal');
+                                        const modalNuevo = document.getElementById('modalNuevo');
+                                        const btnCerrarModal = document.getElementById('btnCerrarModal');
+                                        const btnCancelarModal = document.getElementById('btnCancelarModal');
+                                        const btnGuardarMaterial = document.getElementById('btnGuardarMaterial');
+                                        const formularioGuardar = document.getElementById('formularioGuardar');
+        
+        
+                                        btnNuevo.addEventListener('click', function() {
+                                            modalNuevo.classList.add('is-active');
+                                        });
+        
+        
+                                        btnCerrarModal.addEventListener('click', function() {
+                                            modalNuevo.classList.remove('is-active');
+                                        });
+        
+        
+                                        btnCancelarModal.addEventListener('click', function() {
+                                            modalNuevo.classList.remove('is-active');
+                                        });
+        
+        
+                                        btnGuardarMaterial.addEventListener('click', function() {
+        
+                                            fetch(formularioGuardar.action, {
+                                                    method: 'POST',
+                                                    headers: {
+                                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                                    },
+                                                    body: new URLSearchParams(new FormData(formularioGuardar)),
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+        
+                                                    if (data.success) {
+                                                        modalNuevo.classList.remove('is-active');
+                                                        const notification = document.createElement('div');
+                                                        notification.classList.add('notification', 'is-success');
+                                                        notification.innerText = data.message;
+                                                        document.body.appendChild(notification);
+        
+                                                        setTimeout(function() {
+                                                            notification.remove();
+                                                            // Recargar la página después de eliminar la notificación
+                                                            location.reload();
+                                                        }, 1000);
+        
+        
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    console.error('Error al guardar el material:', error);
+                                                });
+                                        });
+                                    });
+                                </script>
 
 
 

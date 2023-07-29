@@ -5,16 +5,16 @@
         <div class="hero-body">
             <div class="container">
 
-                <div class="column   ">
+                <div class="column is-fourth-fifhts">
                     <div class="column is-offset-1 is-10">
                         <div class="box">
-                            <form action="" method="post">
+                            <form action="{{ route('users.buscar') }}" method="POST">
                                 @csrf
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
                                             <div class="control">
-                                                <a href="">
+                                                <a href="{{ route ('home.home')}}">
                                                     <button class="button is-fullwidth is-link" type="button">
                                                         <span class="icon">
                                                             <i class="bx bx-arrow-back"></i>
@@ -40,10 +40,9 @@
                                             <div class="control">
                                                 <div class="select">
                                                     <select name="filter_option" id="filter_option">
-                                                        <option value="id">Cocinas</option>
-                                                        <option value="name">Anafes</option>
-                                                        <option value="stock">Calefactores</option>
-                                                        <option value="stock">Garrafera</option>
+                                                        <option value="id">Codigo</option>
+                                                        <option value="name">Nombre</option>
+                                                        <option value="email">Email</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -67,10 +66,10 @@
                                 </div>
                             </form>
                         </div>
-                        @yield('list')
                     </div>
-
                 </div>
+                @yield('list')
             </div>
         </div>
+    </div>
 @endsection

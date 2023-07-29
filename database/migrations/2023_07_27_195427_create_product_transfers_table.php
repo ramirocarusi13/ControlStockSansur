@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->text('comment')->nullable();
 
-            $table->boolean('active')->default('true');
+            $table->boolean('active')->default(true);
 
             $table->timestamps();
 

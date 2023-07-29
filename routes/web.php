@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\materialsController;
 use App\Models\materials;
 use App\Http\Controllers\productsController;
+use App\Http\Controllers\usersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +65,10 @@ Route::post('/material/add-stock/{id}', [materialsController::class, 'addStock']
 
 
 Route::get('/products', [productsController::class, 'view'])->middleware('auth')->name('products');
-Route::get('/users', [usersController::class, 'view'])->middleware('auth')->name('users');
+
+Route::get('/users', [usersController::class, 'list'])->middleware('auth')->name('users');
+Route::post('/users/buscar', [usersController::class, 'buscarUsers'])->middleware('auth')->name('users.buscar');
+Route::post('/users/desactivar/{id}', [usersController::class, 'desactivarUsuario'])->middleware('auth')->name('users.desactivar');
+Route::get('/users/getUserData/{id}', [usersController::class, 'getUserData'])->name('users.get_data');
+Route::get('/users/{id}', [usersController::class, 'details'])->middleware('auth')->name('users.details');
+Route::put('/user/{id}', [usersController::class, 'update'])->name('user.update');

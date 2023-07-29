@@ -51,7 +51,7 @@
                     <div class="section">
                         <div class="columns is-vcentered">
                             <div class="column has-text-centered is-offset-1 is-2">
-                                <a href="">
+                                <a href="{{ route ('users')}}">
                                     <div class="box has-text-centered">
                                         <i class="icon is-large is-size-1 bx bx-user"></i>
                                         <br>

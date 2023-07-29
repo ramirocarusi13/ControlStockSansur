@@ -23,6 +23,7 @@
   "dependencies": {
     "boxicons": "^2.1.4",
     "bulma": "^0.9.4",
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "sweetalert2": "^11.7.20"
   }
 }
